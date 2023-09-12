@@ -1,4 +1,6 @@
 import dias.rafael.screenmatch.calculos.CalculadoraDeTempo;
+import dias.rafael.screenmatch.calculos.FiltroRecomendacao;
+import dias.rafael.screenmatch.modelos.Episodio;
 import dias.rafael.screenmatch.modelos.Filme;
 import dias.rafael.screenmatch.modelos.Serie;
 import dias.rafael.screenmatch.modelos.Titulo;
@@ -42,6 +44,15 @@ public class Principal {
         calculadora.inclui(lost);
         System.out.println(calculadora.getTempoTotal());
 
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(lost);
+        episodio.setTotalVisualizacoes(300);
+
+        filtro.filtra(episodio);
 
 
     }

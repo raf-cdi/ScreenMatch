@@ -1,6 +1,8 @@
 package dias.rafael.screenmatch.modelos;
 
-public class Filme extends Titulo{
+import dias.rafael.screenmatch.calculos.Classificavel;
+
+public class Filme extends Titulo implements Classificavel {
 
     private String diretor;
     public String getDiretor() {
@@ -12,4 +14,8 @@ public class Filme extends Titulo{
     }
 
 
+    @Override
+    public int getClassificacao() {
+        return (int) pegaMedia() / 2;
+    }
 }
