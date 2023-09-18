@@ -5,6 +5,8 @@ import dias.rafael.screenmatch.modelos.Filme;
 import dias.rafael.screenmatch.modelos.Serie;
 import dias.rafael.screenmatch.modelos.Titulo;
 
+import java.util.ArrayList;
+
 public class Principal {
 
     public static void main(String[] args) {
@@ -32,6 +34,13 @@ public class Principal {
         lost.setMinutosPorEpisodio(50);
         System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
 
+        Serie starWars = new Serie();
+        starWars.setNome("Star Wars");
+        starWars.setAnoDeLancamento(2020);
+        starWars.setTemporadas(2);
+        starWars.setEpisodiosPorTemporada(7);
+        starWars.setMinutosPorEpisodio(60);
+
         Filme outroFilme = new Filme();
 
         outroFilme.setNome("Avatar");
@@ -54,6 +63,24 @@ public class Principal {
 
         filtro.filtra(episodio);
 
+        Filme filmeDoPaulo = new Filme();
+        filmeDoPaulo.setDuracaoEmMinutos(200);
+        filmeDoPaulo.setNome("Dogville");
+        filmeDoPaulo.setAnoDeLancamento(2003);
+        filmeDoPaulo.avalia(10);
 
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filmeDoPaulo);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+        System.out.println(listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
+
+        ArrayList<Serie> listaDeSeries = new ArrayList<>();
+        listaDeSeries.add(lost);
+        listaDeSeries.add(starWars);
+        System.out.println(listaDeSeries.toString());
+        System.out.println(listaDeSeries.get(1).getNome());
     }
 }
